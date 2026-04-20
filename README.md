@@ -1,2 +1,0 @@
-# PostgreSQL
-Estudos de PostgreSQL
