@@ -12,5 +12,5 @@ CREATE TABLE IF NOT EXISTS exercicio1.usuario (
     email VARCHAR(50) NOT NULL UNIQUE,
     senha VARCHAR(40) NOT NULL,
     
-    CONSTRAINT pk_usuario_id PRIMARY KEY (id);
+    CONSTRAINT pk_usuario_id PRIMARY KEY (id)
 );
