@@ -1,10 +1,16 @@
 CREATE SCHEMA IF NOT EXISTS exercicio1;
-REVOKE ALL ON SCHEMA exercicio1 FROM PUBLIC;
 
 CREATE TABLE IF NOT EXISTS exercicio1.usuario (
-    id INT PRIMARY KEY,
+    id INTEGER GENERATED ALWAYS AS IDENTITY (START WITH 100 
+    INCREMENT BY 1 
+    MINVALUE 1 
+    MAXVALUE 1000 
+    CACHE 10 
+    SEQUENCE NAME exercicio1.seq_usuario_id),
+    
     nome VARCHAR(40) NOT NULL,
     email VARCHAR(50) NOT NULL UNIQUE,
-    senha VARCHAR(40) NOT NULL
+    senha VARCHAR(40) NOT NULL,
+    
+    CONSTRAINT pk_usuario_id PRIMARY KEY (id);
 );
-
