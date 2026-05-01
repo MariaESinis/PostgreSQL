@@ -1,12 +1,14 @@
-CREATE SCHEMA IF NOT EXIST exercicio2;
+CREATE SCHEMA IF NOT EXISTS exercicio2;
 
-CREATE TABLE IF NOT EXIST usuario(
+CREATE TABLE IF NOT EXISTS exercicio2.usuario(
     nome VARCHAR(150),
     email VARCHAR(320),
     senha VARCHAR(20),
-    telefone INTEGER,
-    status-usuario VARCHAR(8),
-    date-criacao DATE,
-    idade INTEGER,
-    nivel-acesso INTEGER
-)
+    telefone VARCHAR(11),
+    status VARCHAR(8) NOT NULL DEAFULT 'ativo',
+    data_criacao DATE NOT NULL DEFAULT CURRENT_DATE,
+    idade INTEGER CHECK (idade BETWEEN 14 AND 120),
+    nivel_acesso INTEGER CHECK (nivel-acesso BETWEEN 1 and 5),
+
+    CONSTRAINT chk_usuario_status CHECK (status IN ('ativo', 'inativo', 'bloqueado', 'pendente'))
+);
