@@ -24,12 +24,10 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-
 --Funcao valida senha
 CREATE OR REPLACE FUNCTION exercicio2.fn_valida_senha(senha TEXT, email TEXT)
 RETURNS BOOLEAN AS $$
 BEGIN
-    RETURN (
         RETURN (
         length(senha) >= 8                    
         AND senha !~ ' '                      
@@ -45,12 +43,12 @@ $$ LANGUAGE plpgsql;
 CREATE TABLE IF NOT EXISTS exercicio2.usuario(
     nome VARCHAR(150),
     email VARCHAR(320), 
-    senha VARCHAR(20),
+    senha VARCHAR(100),
     telefone VARCHAR(11),
     status VARCHAR(8) NOT NULL DEFAULT 'ativo',
     data_criacao DATE NOT NULL DEFAULT CURRENT_DATE,
     idade INTEGER CHECK (idade BETWEEN 14 AND 120),
-    nivel_acesso INTEGER CHECK (nivel-acesso BETWEEN 1 and 5),
+    nivel_acesso INTEGER CHECK (nivel_acesso BETWEEN 1 and 5),
 
     CONSTRAINT chk_nome_valido CHECK (exercicio2.fn_valida_nome(nome)),
     CONSTRAINT chk_usuario_email CHECK (email LIKE '%@%.%'),
