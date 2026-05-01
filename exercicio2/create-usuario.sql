@@ -53,6 +53,6 @@ CREATE TABLE IF NOT EXISTS exercicio2.usuario(
     CONSTRAINT chk_nome_valido CHECK (exercicio2.fn_valida_nome(nome)),
     CONSTRAINT chk_usuario_email CHECK (email LIKE '%@%.%'),
     CONSTRAINT chk_senha_valido check(exercicio2.fn_valida_senha(senha, email)),
-    CONSTRAINT chk_telefone_brasil CHECK (exercicio2.fn_valida_telefone(telefone)),
+    CONSTRAINT chk_usuario_telefone CHECK (exercicio2.fn_valida_telefone(telefone)),
     CONSTRAINT chk_usuario_status CHECK (status IN ('ativo', 'inativo', 'bloqueado', 'pendente'))
 );
