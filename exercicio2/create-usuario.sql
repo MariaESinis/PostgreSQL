@@ -19,8 +19,8 @@ RETURNS BOOLEAN AS $$
 BEGIN
     RETURN (
                     input_tel ~         '^[0-9]{10,11}$'                  
-        AND         (length(tel) =      10 
-        OR          (length(tel) =      11 
+        AND         (length(input_tel) =      10 
+        OR          (length(input_tel) =      11 
         AND         substring(tel from 3 for 1) = '9'))
     
     );
