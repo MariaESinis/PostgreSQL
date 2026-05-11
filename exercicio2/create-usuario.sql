@@ -4,7 +4,7 @@ DROP FUNCTION IF EXISTS exercicio2.fn_valida_nome(TEXT) CASCADE;
 DROP FUNCTION IF EXISTS exercicio2.fn_valida_telefone(TEXT) CASCADE;
 DROP FUNCTION IF EXISTS exercicio2.fn_valida_email(TEXT) CASCADE;
 
--- Funcao valida nhjkj
+-- Funcao valida nome
 
 CREATE OR REPLACE FUNCTION exercicio2.fn_valida_nome(input_nome TEXT)
 RETURNS BOOLEAN 
