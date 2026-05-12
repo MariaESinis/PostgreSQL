@@ -1,5 +1,5 @@
 CREATE SCHEMA IF NOT EXISTS exercicio3;
-CREATE TYPE exercicio3.status AS ENUM ('ativo', 'indisponivel', 'promocao', 'esgotado', 'cancelado');
+CREATE TYPE exercicio3.status_produtos AS ENUM ('ativo', 'indisponivel', 'promocao', 'esgotado', 'cancelado');
 
 --Valida codigo produto
 CREATE OR REPLACE FUNCTION exercicio3.fn_valida_codigo_produto()
@@ -53,17 +53,21 @@ CREATE TABLE IF NOT EXISTS exercicio3.produtos(
         SEQUENCE NAME exercicio3.seq_produtos_id
     ),
     codigo_produto  VARCHAR(10)                 NOT NULL    DEFAULT exercicio3.fn_valida_codigo_produto(),
-    nome            VARCHAR(150)        NOT NULL,
-    descricao       VARCHAR(2000)       NOT NULL,
-    preco           DECIMAL(10,2)       NOT NULL,
-    estoque         INT                 NOT NULL,
-    status          exercicio3.status   NOT NULL,
-    data_cadastro   TIMESTAMPTZ         NOT NULL    DEFAULT CURRENT_TIMESTAMP,
-    categoria       INT                 NOT NULL,
+    nome            VARCHAR(150)                NOT NULL,
+    descricao       VARCHAR(2000)               NOT NULL,
+    preco           DECIMAL(10,2)               NOT NULL,
+    estoque         INT                         NOT NULL,
+    status          exercicio3.status_produtos  NOT NULL,
+    data_cadastro   TIMESTAMPTZ                 NOT NULL    DEFAULT     CURRENT_TIMESTAMP,
+    categoria       INT                         NOT NULL    REFERENCES  exercicio3.categorias(id),
 
     CONSTRAINT pk_produtos_id PRIMARY KEY (id),
 
     CONSTRAINT uq_produtos_codigo UNIQUE (codigo_produto),
+
+    CONSTRAINT fk_produtos_categoria
+        FOREIGN KEY(categoria)
+        REFERENCES exercicio3.categorias (id),
 
     CONSTRAINT chk_produtos_nome CHECK(
         exercicio3.fn_valida_nome(nome)
