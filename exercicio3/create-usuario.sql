@@ -1,4 +1,9 @@
-CREATE TYPE exercicio3.status_usuario AS ENUM ('ativo', 'inativo', 'bloqueado', 'pendente');
+CREATE TYPE exercicio3.status_usuario AS ENUM (
+    'ativo', 
+    'inativo', 
+    'bloqueado', 
+    'pendente'
+);
 
 -- Tabela Usuario
 CREATE TABLE IF NOT EXISTS exercicio3.usuario(
