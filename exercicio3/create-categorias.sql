@@ -1,4 +1,9 @@
-CREATE TYPE exercicio3.status AS ENUM ('ativo', 'inativo', 'bloqueado', 'arquivada');
+CREATE TYPE exercicio3.status AS ENUM (
+    'ativo', 
+    'inativo', 
+    'bloqueado', 
+    'arquivada'
+);
 
 CREATE TABLE IF NOT EXISTS exercicio3.categorias(
     id INTEGER	GENERATED ALWAYS AS IDENTITY(
