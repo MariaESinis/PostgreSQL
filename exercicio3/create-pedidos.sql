@@ -1,22 +1,12 @@
-CREATE SCHEMA IF NOT EXISTS exercicio3;
-CREATE TYPE exercicio3.status_pedidos AS ENUM('aguardando_pagamento', 'pago',  'em_separacao', 
-                                            'enviado', 'entregue', 'cancelado', 'devolvido ');
-
-CREATE OR REPLACE FUNCTION exercicio3.fn_valida_codigo_pedido()
-RETURNS VARCHAR(17)
-LANGUAGE plpgsql
-VOLATILE
-AS $$
-
-BEGIN
-    RETURN
-        'PED-' ||
-        TO_CHAR(TIMESTAMPTZ, 'YYYYMMDD') ||
-        '-' ||
-        UPPER(SUBSTRING(MD5(RANDOM()::TEXT) FROM 1 FOR 4));
-
-END;
-$$;
+CREATE TYPE exercicio3.status_pedidos AS ENUM(
+    'aguardando_pagamento', 
+    'pago',  
+    'em_separacao', 
+    'enviado', 
+    'entregue', 
+    'cancelado', 
+    'devolvido'
+);
 
 CREATE TABLE exercicio3.pedidos(
     id INTEGER GENERATED ALWAYS AS IDENTITY(
