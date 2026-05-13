@@ -1,20 +1,5 @@
 CREATE TYPE exercicio3.status AS ENUM ('ativo', 'inativo', 'bloqueado', 'arquivada');
 
---Funcao valida nome
-CREATE OR REPLACE FUNCTION exercicio3.fn_valida_nome(IN p_nome TEXT)
-RETURNS BOOLEAN 
-LANGUAGE plpgsql
-IMMUTABLE
-AS $$
-BEGIN
-    RETURN (
-        length(trim(p_nome)) >= 3        
-        AND p_nome ~ '^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ ]*[A-Za-zÀ-ÿ]$' 
-        AND p_nome !~ '  ' -- Evita espaços duplos
-    );
-END;
-$$;
-
 CREATE TABLE IF NOT EXISTS exercicio3.categorias(
     id INTEGER	GENERATED ALWAYS AS IDENTITY(
         START WITH 1
