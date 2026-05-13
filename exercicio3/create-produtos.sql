@@ -1,47 +1,5 @@
 CREATE TYPE exercicio3.status_produtos AS ENUM ('ativo', 'indisponivel', 'promocao', 'esgotado', 'cancelado');
 
---Valida codigo produto
-CREATE OR REPLACE FUNCTION exercicio3.fn_valida_codigo_produto()
-RETURNS VARCHAR(10)
-LANGUAGE plpgsql
-IMMUTABLE
-AS $$
-BEGIN
-    RETURN 
-        'PRD-' || UPPER(SUBSTRING(MD5(RANDOM()::TEXT) FROM 1 FOR 6));
-END;
-$$;
-
---Valida nome
-CREATE OR REPLACE FUNCTION exercicio3.fn_valida_nome(IN p_nome TEXT)
-RETURNS BOOLEAN 
-LANGUAGE plpgsql
-IMMUTABLE
-AS $$
-BEGIN
-    RETURN (
-        length(trim(p_nome)) >= 3        
-        AND p_nome ~ '^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ ]*[A-Za-zÀ-ÿ]$' 
-        AND p_nome !~ '  ' -- Evita espaços duplos
-    );
-END;
-$$;
-
---Valida descricao
-CREATE OR REPLACE FUNCTION exercicio3.fn_valida_descricao(IN p_descricao TEXT)
-RETURNS BOOLEAN
-LANGUAGE plpgsql
-IMMUTABLE
-AS $$
-BEGIN   
-    RETURN(
-        length(trim(p_descricao)) >= 20
-        AND p_descricao !~ '  ' -- Evita espaços duplos
-    );
-END;
-$$;
-
-
 CREATE TABLE IF NOT EXISTS exercicio3.produtos(
     id INTEGER GENERATED ALWAYS AS IDENTITY(
         START WITH 0
