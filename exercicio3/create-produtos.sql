@@ -1,4 +1,3 @@
-CREATE SCHEMA IF NOT EXISTS exercicio3;
 CREATE TYPE exercicio3.status_produtos AS ENUM ('ativo', 'indisponivel', 'promocao', 'esgotado', 'cancelado');
 
 --Valida codigo produto
