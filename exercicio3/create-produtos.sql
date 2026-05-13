@@ -1,4 +1,10 @@
-CREATE TYPE exercicio3.status_produtos AS ENUM ('ativo', 'indisponivel', 'promocao', 'esgotado', 'cancelado');
+CREATE TYPE exercicio3.status_produtos AS ENUM (
+    'ativo', 
+    'indisponivel', 
+    'promocao', 
+    'esgotado', 
+    'cancelado'
+);
 
 CREATE TABLE IF NOT EXISTS exercicio3.produtos(
     id INTEGER GENERATED ALWAYS AS IDENTITY(
