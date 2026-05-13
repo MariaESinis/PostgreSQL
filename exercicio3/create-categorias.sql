@@ -1,5 +1,4 @@
-CREATE SCHEMA IF NOT EXISTS exercicio3;
---CREATE TYPE exercicio3.status AS ENUM ('ativo', 'inativo', 'bloqueado', 'arquivada');
+CREATE TYPE exercicio3.status AS ENUM ('ativo', 'inativo', 'bloqueado', 'arquivada');
 
 --Funcao valida nome
 CREATE OR REPLACE FUNCTION exercicio3.fn_valida_nome(IN p_nome TEXT)
