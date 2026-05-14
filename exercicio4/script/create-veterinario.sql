@@ -4,35 +4,39 @@ CREATE TYPE exercicio4.status_veterinario AS ENUM(
     'desligado'
 );
 
-CREATE TYPE exercicio4.especialidades(
-    'cirurgia',
-    'patologia',
-    'acunputura',
-    'diagnostico por imagem',
-    'anestesiologia',
-    'medicina veterinaria do coletivo',
-    'endocrinologia',
-    'medicina de animais selvagens',
-    'medicina intesiva veterinaria',
-    'dermatologia',
-    'cardiologia',
-    'oftalmologia',
-    'homeopatia',
-    'oncologia',
-    'inspencao higienica, sanitaria e tecnologica de produtos animais e tecnologia de produtos de origem animal e de saude publica',
-    'nefrologia e urologia',
-    'nutricao e nutrologia de caes e gatos'
-    'nutricao de caes e gatos'
-)
 
-CREATE TABLE IF NO EXIST exercicio4.veterinario(
-    id
-    nome
-    crmv
-    cpf
-    especialidade
-    data_contratacao
-    situacao
-    created_at
-    updated_at
-)
+CREATE TABLE IF NOT EXISTS exercicio4.veterinario(
+    id INTEGER GENERATED ALWAYS AS IDENTITY(
+        START WITH 0
+        INCREMENT BY 1
+        MINVALUE 0
+        MAXVALUE 10000
+        CACHE 1
+        SEQUENCE NAME exercicio4.seq_veterinario_id
+    ),
+	
+    nome                    VARCHAR(150)                        NOT NULL,
+    crmv                    VARCHAR(11)                         NOT NULL,
+    cpf                     VARCHAR(11)                         NOT NULL,
+    especialidade           VARCHAR(60)                         NOT NULL,
+    data_contratacao        TIMESTAMPTZ                         NOT NULL,
+    situacao                exercicio4.status_veterinario       NOT NULL       DEFAULT 'ativo',
+    created_at              TIMESTAMPTZ                         NOT NULL,
+    updated_at              TIMESTAMPTZ                         NOT NULL,
+    
+    CONSTRAINT pk_veterinario_id PRIMARY KEY(id),
+    
+    CONSTRAINT chk_veterinario_nome CHECK(
+        exercicio4.fn_nome(nome)
+    ),
+    CONSTRAINT chk_veterinario_crmv CHECK(
+        exercicio4.fn_veterinario_crmv(crmv)
+    ),
+    CONSTRAINT chk_veterinario_cpf CHECK(
+        exercicio4.fn_cpf(cpf)
+    ),
+    CONSTRAINT chk_veterinario_especialidade CHECK(
+        exercicio4.fn_veterinario_especialidade(especialidade)
+    )
+
+);
