@@ -20,6 +20,8 @@ CREATE TABLE IF NOT EXISTS exercicio4.tutor(
     created_at      TIMESTAMPTZ                   NOT NULL,
     situacao        exercicio4.situacao_tutor     NOT NULL DEFAULT 'ativo',
 
+    CONSTRAINT pk_tutor_id PRIMARY KEY (id),
+
     CONSTRAINT chk_tutor_cpf CHECK(
         exercicio4.fn_cpf(cpf)
     ),
