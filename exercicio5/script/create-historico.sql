@@ -23,7 +23,9 @@ CREATE TABLE IF NOT EXISTS ex5_rh.fn_historico(
 
     CONSTRAINT pk_historico_id PRIMARY KEY(id),
 
-    CONSTRAINT chk_historico_responsavel CHECK(ex5_helpers.fn_nome(responsavel)),
+    CONSTRAINT chk_historico_responsavel CHECK(
+        ex5_helpers.fn_nome(responsavel)
+    ),
 
     CONSTRAINT fk_funcionario_id FOREIGN KEY(funcionario_id) REFERENCES ex5_rh.funcionario(id)
 )
