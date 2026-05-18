@@ -29,6 +29,6 @@ CREATE TABLE IF NOT EXISTS ex5_financeiro.pagamento(
 
     CONSTRAINT fk_financeiro_funcionario_id FOREIGN KEY 
         (funcionario_id) REFERENCES 
-        (ex5_rh.funcionario(id)
-    )
+        ex5_rh.funcionario(id)
+    
 )
