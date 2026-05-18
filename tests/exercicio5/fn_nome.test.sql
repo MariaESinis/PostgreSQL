@@ -1,7 +1,6 @@
 BEGIN;
 
 SET search_path TO ex_pgtap;
-
 SELECT plan(5);
 
 SELECT diag('Retorna TRUE se o nome for válido');
