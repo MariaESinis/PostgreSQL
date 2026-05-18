@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS ex5_rh.funcionario(
     salario_base        DECIMAL(10,2) NOT NULL,
     status              ex5_rh.funcionario_status NOT NULL DEFAULT 'ativo',
     created_at          TIMESTAMPTZ NOT NULL,
-    updated_At          TIMESTAMPTZ NOT NULL,
+    updated_at          TIMESTAMPTZ NOT NULL,
 
     CONSTRAINT pk_funcionario_id PRIMARY KEY(id),
 
@@ -31,8 +31,18 @@ CREATE TABLE IF NOT EXISTS ex5_rh.funcionario(
     CONSTRAINT uq_funcionario_email UNIQUE(email),
     CONSTRAINT uq_funcionario_telefone UNIQUE(telefone),
 
-    CONSTRAINT chk_funcionario_email CHECK(ex5_helpers.fn_email(email)),
-    CONSTRAINT chk_funcionario_telefone CHECK(ex5_helpers.fn_telefone(telefone)),
+    CONSTRAINT chk_funcionario_nome CHECK(
+        ex5_helpers.fn_nome(nome)
+    ),
+    
+    CONSTRAINT chk_funcionario_email CHECK(
+        ex5_helpers.fn_email(email)
+    ),
+
+    CONSTRAINT chk_funcionario_telefone CHECK(
+        ex5_helpers.fn_telefone(telefone)
+    ),
+
     CONSTRAINT chk_funcionario_salario CHECK(salario_base > 0)
 
 );
