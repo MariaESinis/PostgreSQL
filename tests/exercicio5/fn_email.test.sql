@@ -1,7 +1,7 @@
 BEGIN;
 
 SET search_path TO ex_pgtap;
-SELECT plan();
+SELECT plan(4);
 
 SELECT diag('Retorna TRUE se o email for válido');
 SELECT is(ex5_helpers.fn_email('maria.sinis@gmail.com'), TRUE, 'Email válido');
