@@ -13,7 +13,7 @@ CREATE TABLE ex5_ti.perfil_acesso(
         SEQUENCE NAME seq_perfil_acesso_id
     ),
     nome                VARCHAR(150)            			NOT NULL,
-    nivel_acesso        CHAR                    			NOT NULL,
+    nivel_acesso        CHAR(1)                    			NOT NULL,
     descricao           VARCHAR(3000)           			NOT NULL,
     is_active           ex5_ti.perfil_acesso_is_active      NOT NULL    DEFAULT 'ativo',
 
@@ -23,7 +23,7 @@ CREATE TABLE ex5_ti.perfil_acesso(
         nivel_acesso IN('1','2','3','4','5')
     ),
 
-    CONSTRAINT chk_peril_acesso CHECK(
+    CONSTRAINT chk_perfil_acesso CHECK(
         ex5_helpers.fn_nome(nome)
     )
 );
