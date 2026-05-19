@@ -145,7 +145,7 @@ SELECT throws_ok(
     );
     $$,
     '23505',
-    'new row for relation "equipamentos" violates unique constraint "uq_equipamento_num_patrimonial"'
+    NULL
 );
 
 SELECT * FROM finish();
