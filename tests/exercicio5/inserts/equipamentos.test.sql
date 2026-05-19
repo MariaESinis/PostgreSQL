@@ -26,7 +26,7 @@ SELECT throws_ok(
         'disponivel', 
         '2024-04-03 00:00:00-03', 
         '2024-04-03 00:00:00-03'
-      )
+      );
     $$,
      '23514',
     'new row for relation "equipamentos" violates check constraint "chk_equipamento_valor_aquisicao"'
@@ -55,7 +55,7 @@ SELECT throws_ok(
         'disponivel', 
         '2025-04-03 12:00:00-03', 
         '2025-04-06 00:00:00-03'
-      )
+      );
     $$,
      '23514',
     'new row for relation "equipamentos" violates check constraint "chk_equipamento_num_serie"'
