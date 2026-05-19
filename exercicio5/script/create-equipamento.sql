@@ -34,10 +34,10 @@ CREATE TABLE IF NOT EXISTS ex5_ti.equipamentos(
     ),
 
     CONSTRAINT chk_equipamento_num_serie CHECK(
-        ex5_helpers.fn_num_serie
+        ex5_helpers.fn_num_serie(num_serie)
     ),
 
     CONSTRAINT chk_equipamento_fabricante CHECK(
-        ex5_helpers.fn_nome
+        ex5_helpers.fn_nome(fabricante)
     )
 )
