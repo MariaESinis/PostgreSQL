@@ -1,7 +1,7 @@
 BEGIN;
 
 SET search_path TO ex_pgtap;
-SELECT plan(1);
+SELECT plan(2);
 
 SELECT throws_ok(
     $$ 
@@ -30,7 +30,9 @@ SELECT throws_ok(
     $$,
      '23514',
     'new row for relation "equipamentos" violates check constraint "chk_equipamento_valor_aquisicao"'
+);
 
+SELECT throws_ok(
     $$
       INSERT INTO ex5_ti.equipamentos(
         num_patrimonial, 
