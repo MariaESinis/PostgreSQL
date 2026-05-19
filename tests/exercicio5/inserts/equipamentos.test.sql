@@ -28,7 +28,7 @@ SELECT throws_ok(
         '2024-04-03 00:00:00-03'
       )
     $$,
-    'check_violation',
+     '23514',,
     'new row for relation "equipamentos" violates check constraint "chk_equipamento_valor_aquisicao"'
 );
 
