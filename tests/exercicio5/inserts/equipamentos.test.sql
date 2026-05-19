@@ -1,7 +1,7 @@
 BEGIN;
 
 SET search_path TO ex_pgtap;
-SELECT plan(3);
+SELECT plan(4);
 
 SELECT throws_ok(
     $$ 
@@ -116,7 +116,7 @@ SELECT throws_ok(
       );
     $$,
      '23505',
-    'new row for relation "equipamentos" violates check constraint "uq_equipamento_num_patrimonial"'
+    'new row for relation "equipamentos" violates unique constraint "uq_equipamento_num_patrimonial"'
 );
 SELECT * FROM finish();
 
