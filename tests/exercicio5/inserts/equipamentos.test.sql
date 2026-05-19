@@ -1,7 +1,7 @@
 BEGIN;
 
 SET search_path TO ex_pgtap;
-SELECT plan(4);
+SELECT plan(5);
 
 SELECT throws_ok(
     $$ 
