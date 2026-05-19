@@ -48,7 +48,7 @@ SELECT throws_ok(
 	    VALUES (
         3005, 
         'A356!%', 
-        'Rayzor'
+        'Rayzor',
         'BR404', 
         '2025-04-03 09:00:00-03', 
         500.00, 
