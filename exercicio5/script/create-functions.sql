@@ -45,3 +45,16 @@ BEGIN
     );
 END;
 $$;
+
+CREATE OR REPLACE FUNCTION ex5_helpers.fn_num_serie(IN p_nome TEXT)
+RETURNS BOOLEAN
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    RETURN (
+        trim(p_nome) ~ '^[A-Za-zÀ-ÿ]+( [A-Za-zÀ-ÿ]+)*$'
+        AND length(trim(p_nome)) >= 3
+        AND p_nome !~ ' '
+    );
+END;
+$$;

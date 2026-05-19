@@ -31,5 +31,13 @@ CREATE TABLE IF NOT EXISTS ex5_ti.equipamentos(
 
     CONSTRAINT chk_equipamento_valor_aquisicao CHECK(
         valor_aquisicao > 0
+    ),
+
+    CONSTRAINT chk_equipamento_num_serie CHECK(
+        ex5_helpers.fn_num_serie
+    ),
+
+    CONSTRAINT chk_equipamento_fabricante CHECK(
+        ex5_helpers.fn_nome
     )
 )
