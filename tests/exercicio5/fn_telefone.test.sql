@@ -1,7 +1,7 @@
 BEGIN;
 
 SET search_path TO ex_pgtap;
-SELECT plan();
+SELECT plan(6);
 
 SELECT diag('Retorne TRUE se o telefone for válido');
 SELECT is(ex5_helpers.fn_telefone(11910935435), TRUE, 'Telefone válido');
