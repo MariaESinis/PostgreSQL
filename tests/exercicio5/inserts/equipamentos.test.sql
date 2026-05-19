@@ -3,7 +3,7 @@ BEGIN;
 SET search_path TO ex_pgtap;
 SELECT plan(1);
 
-SELECT throwns_ok(
+SELECT throws_ok(
     $$ 
       INSERT INTO ex5_ti.equipamentos(
         num_patrimonial, 
