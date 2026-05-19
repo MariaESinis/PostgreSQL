@@ -148,6 +148,63 @@ SELECT throws_ok(
     NULL
 );
 
+-- 5) UNIQUE num_serie
+SELECT throws_ok(
+    $$
+    INSERT INTO ex5_ti.equipamentos(
+    num_patrimonial,
+    num_serie,
+    fabricante,
+    modelo,
+    data_aquisicao,
+    valor_aquisicao,
+    situacao,
+    created_at,
+    updated_at
+  )
+  VALUES (
+    3100,
+    'BCD1500',
+    'Dell',
+    'X1',
+    '2024-04-02 14:00:00-03',
+    100.00,
+    'disponivel',
+    '2024-04-03 00:00:00-03',
+    '2024-04-03 00:00:00-03'
+    );
+    $$
+);
+
+SELECT throws_ok(
+    $$
+    INSERT INTO ex5_ti.equipamentos(
+    num_patrimonial,
+    num_serie,
+    fabricante,
+    modelo,
+    data_aquisicao,
+    valor_aquisicao,
+    situacao,
+    created_at,
+    updated_at
+)
+VALUES (
+    3100,
+    'BCD1500',
+    'Dell',
+    'X1',
+    '2024-04-02 14:00:00-03',
+    100.00,
+    'disponivel',
+    '2024-04-03 00:00:00-03',
+    '2024-04-03 00:00:00-03'
+  );
+  $$
+  '23505',
+    NULL
+);
+
 SELECT * FROM finish();
 
 ROLLBACK;
