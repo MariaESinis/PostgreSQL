@@ -5,7 +5,7 @@ CREATE TYPE ex5_ti.equipamento_status AS ENUM(
     'baixado'
 );
 
-CREATE TABLE IF NOT EXISTS ex5_tiequipamentos(
+CREATE TABLE IF NOT EXISTS ex5_ti.equipamentos(
     id  INTEGER GENERATED ALWAYS AS IDENTITY(
         START WITH 0
         INCREMENT BY 1
