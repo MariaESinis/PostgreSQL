@@ -57,7 +57,7 @@ SELECT throws_ok(
         '2025-04-06 00:00:00-03'
       )
     $$
-     '23514'
+     '23514',
     'new row for relation "equipamentos" violates check constraint "chk_equipamento_num_serie"'
 );
 
