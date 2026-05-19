@@ -90,6 +90,9 @@ SELECT throws_ok(
     'new row for relation "equipamentos" violates check constraint "chk_equipamento_fabricante"'
 );
 
+INSERT INTO ex5_ti.equipamentos(num_patrimonial, num_serie)
+VALUES (3005, 'ABC123');
+
 SELECT throws_ok(
     $$
       INSERT INTO ex5_ti.equipamentos(
