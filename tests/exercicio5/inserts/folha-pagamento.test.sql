@@ -53,7 +53,7 @@ VALUES (
 );
   $$,
   '23514',
-  'new row for relation "folha_pagamento" violates check constraint "chk_valor_bruto"'
+  'new row for relation "pagamento" violates check constraint "chk_valor_bruto"'
 );
 
 SELECT * FROM finish();
