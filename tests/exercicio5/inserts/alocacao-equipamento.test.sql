@@ -13,15 +13,13 @@ VALUES (1);
 SELECT throws_ok(
   $$
 		INSERT INTO ex5_ti.alocacao_equipamentos(
-			id, 
 			periodo, 
 			motivo, 
 			situacao, 
 			funcionario_id, 
 			equipamento_id
 		)
-		VALUES (
-			10, 
+		VALUES ( 
 			'[2024-01-01 10:00:00+00, 2024-01-01 12:00:00+00]', 
 			'Aloc@cao de tr@b@lh0', 
 			'ativa', 
