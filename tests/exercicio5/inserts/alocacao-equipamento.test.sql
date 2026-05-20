@@ -44,7 +44,7 @@ INSERT INTO ex5_ti.equipamentos(
 )
 VALUES (
     10001,
-    'SN-ABC-123',
+    'SNABC123',
     'Dell',
     'Latitude 5420',
     '2024-01-10 10:00:00-03',
