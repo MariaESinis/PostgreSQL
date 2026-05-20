@@ -57,3 +57,16 @@ BEGIN
     );
 END;
 $$;
+
+CREATE OR REPLACE FUNCTION ex5_helpers.fn_nome_perfil(IN p_nome TEXT)
+RETURNS BOOLEAN
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    RETURN (
+        p_nome ~ '^[A-Za-z0-9]+$'
+        AND length(p_nome) >= 3
+
+    );
+END;
+$$;
