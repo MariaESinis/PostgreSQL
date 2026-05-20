@@ -29,6 +29,10 @@ CREATE TABLE IF NOT EXISTS ex5_financeiro.reembolso(
         valor_solicitacao > 0
     ),
 
+    CONSTRAINT chk_descricao CHECK(
+        ex5_helpers.fn_motivo(descricao)
+    ),
+
     CONSTRAINT fk_funcionario_id FOREIGN KEY(
         funcionario_id) REFERENCES 
         ex5_rh.funcionario(id)
