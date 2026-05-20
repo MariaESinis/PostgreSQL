@@ -88,7 +88,6 @@ WHERE id = 1;
 SELECT throws_ok(
     $$
       INSERT INTO ex5_financeiro.reembolso(
-      id,
       data_solicitacao,
       valor_solicitacao,
       descricao,
@@ -98,7 +97,6 @@ SELECT throws_ok(
       departamento_id
     )
       VALUES (
-      1,
       '2026-05-20 14:30:00-03',
       -350.75,
       'Reembolso de despesas com transporte corporativo',
