@@ -1,6 +1,6 @@
 BEGIN;
 
-SET search_path TO ex_pgtap
+SET search_path TO ex_pgtap;
 
 SELECT plan(1);
 
