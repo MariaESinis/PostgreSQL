@@ -6,7 +6,7 @@ CREATE TYPE ex5_rh.historico_status AS ENUM(
     'desligamento'
 );
 
-CREATE TABLE IF NOT EXISTS ex5_rh.fn_historico(
+CREATE TABLE IF NOT EXISTS ex5_rh.historico(
     id INTEGER GENERATED ALWAYS AS IDENTITY(
         START WITH 0
         INCREMENT BY 1
