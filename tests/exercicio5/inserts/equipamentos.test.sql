@@ -2,7 +2,7 @@ BEGIN;
 
 SET search_path TO ex_pgtap;
 
-SELECT plan(6);
+SELECT plan(5);
 
 -- 1) CHECK valor_aquisicao
 SELECT throws_ok(
