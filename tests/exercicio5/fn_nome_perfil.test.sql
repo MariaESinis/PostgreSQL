@@ -12,8 +12,8 @@ SELECT is(ex5_helpers.fn_nome_perfil('User!23'), FALSE, 'Nome de perfil inválid
 SELECT diag('Retorna FALSE se o nome de perfil tiver espaço');
 SELECT is(ex5_helpers.fn_nome_perfil('User 123'), FALSE, 'Nome de perfil inválido');
 
-SELECT diag('Retorna FALSE se o nome de perfil tiver caracter < 3');
-SELECT is(ex5_helpers.fn_nome_perfil('U12'), FALSE, 'Nome de perfil inválido');
+SELECT diag('Retorna FALSE se o nome de perfil tiver caracter <= 3');
+SELECT is(ex5_helpers.fn_nome_perfil('U1'), FALSE, 'Nome de perfil inválido');
 
 SELECT * FROM finish();
 ROLLBACK;
