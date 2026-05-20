@@ -1,7 +1,7 @@
 BEGIN;
 
 SET search_path TO ex_pgtap;
-SELECT plan();
+SELECT plan(4);
 
 SELECT diag('Retorna TRUE se o numero de serie for válido');
 SELECT is(ex5_helpers.fn_num_serie('ABC123'), TRUE, 'Número de serie válido');
