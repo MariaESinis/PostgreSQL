@@ -45,7 +45,7 @@ SELECT throws_ok(
 VALUES (
     '2026-05',
     NOW(),
-    5000.00,
+    -5000.00,
     500.00,
     4500.00,
     'pendente',
