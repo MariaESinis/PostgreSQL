@@ -21,6 +21,10 @@ CREATE TABLE IF NOT EXISTS ex5_ti.alocacao_equipamentos(
 
     CONSTRAINT pk_reembolso_id PRIMARY KEY(id),
     
+    CONSTRAINT chk_motivo CHECK(
+        ex5_helpers.fn_motivo(motivo)
+    ),
+
     CONSTRAINT fk_funcionario_id FOREIGN KEY(
         funcionario_id) REFERENCES 
         ex5_rh.funcionario(id),
