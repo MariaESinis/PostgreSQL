@@ -28,7 +28,22 @@ VALUES (
     'ativo',
     CURRENT_TIMESTAMP,
     CURRENT_TIMESTAMP,
-	NULL
+	  NULL
+);
+
+INSERT INTO ex5_rh.departamento(
+    nome,
+    sigla,
+    orcamento_mensal,
+    data_criacao,
+    gestor_id
+)
+VALUES (
+    'Tecnologia da Informação',
+    'TI',
+    75000.00,
+    '2026-05-20 10:00:00-03',
+    1
 );
 
 INSERT INTO ex5_rh.funcionario(
@@ -55,23 +70,10 @@ VALUES (
     'ativo',
     CURRENT_TIMESTAMP,
     CURRENT_TIMESTAMP,
-	NULL
+	  1
 );
 
-INSERT INTO ex5_rh.departamento(
-    nome,
-    sigla,
-    orcamento_mensal,
-    data_criacao,
-    gestor_id
-)
-VALUES (
-    'Tecnologia da Informação',
-    'TI',
-    75000.00,
-    '2026-05-20 10:00:00-03',
-    1
-);
+
 
 SELECT throws_ok(
     $$
