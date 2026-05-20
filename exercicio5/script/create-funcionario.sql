@@ -48,4 +48,4 @@ CREATE TABLE IF NOT EXISTS ex5_rh.funcionario(
 );
 
 --ALTER TABLE ex5_rh.funcionario ADD departamento_id INTEGER;
---ALTER TABLE ex5_rh.funcionario ADD CONSTRAINT fk_departamento_id FOREIGN KEY(departamento_id) REFERENCES ex5_rh.departamento(id);
+--ALTER TABLE ex5_rh.funcionario ADD CONSTRAINT fk_departamento_id FOREIGN KEY(departamento_id) REFERENCES ex5_rh.departamento(id) DEFERRABLE INITIALLY IMMEDIATE;
