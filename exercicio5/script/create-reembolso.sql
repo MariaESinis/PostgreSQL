@@ -40,5 +40,6 @@ CREATE TABLE IF NOT EXISTS ex5_financeiro.reembolso(
     CONSTRAINT fk_departamento_id FOREIGN KEY(
         departamento_id) REFERENCES 
         ex5_rh.departamento(id)
+        DEFERRABLE INITIALLY IMMEDIATE
 
-)
+);
