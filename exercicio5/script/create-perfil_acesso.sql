@@ -1,5 +1,5 @@
 CREATE TYPE ex5_ti.perfil_acesso_is_active AS ENUM(
-    'ativo',
+   'ativo',
     'inativo'
 );
 
@@ -19,11 +19,12 @@ CREATE TABLE ex5_ti.perfil_acesso(
 
     CONSTRAINT pk_perfil_acesso_id PRIMARY KEY(id),
 
-    CONSTRAINT chk_perfil_acesso CHECK(
+    CONSTRAINT chk_perfil_acesso_nivel_acesso CHECK(
         nivel_acesso IN('1','2','3','4','5')
     ),
 
-    CONSTRAINT chk_perfil_acesso CHECK(
-        ex5_helpers.fn_nome(nome)
+    CONSTRAINT chk_perfil_acesso_nome CHECK(
+        ex5_helpers.fn_nome_perfil(nome)
     )
 );
+
