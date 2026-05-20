@@ -1,7 +1,7 @@
 BEGIN;
 
 SET search_path TO ex_pgtap;
-SELECT plan(); --Adicionar um numero antes de rodar o teste
+SELECT plan(1); --Adicionar um numero antes de rodar o teste
 
 SELECT throws_ok(
     $$
