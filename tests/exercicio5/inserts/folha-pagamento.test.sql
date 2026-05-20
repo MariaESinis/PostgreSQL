@@ -81,6 +81,31 @@ VALUES (
   'new row for relation "pagamento" violates check constraint "chk_valor_desconto"'
 );
 
+SELECT throws_ok(
+  $$
+    INSERT INTO ex5_financeiro.pagamento(
+    competencia,
+    data_pagamento,
+    valor_bruto,
+    valor_desconto,
+    valor_liquido,
+    status,
+    funcionario_id
+)
+VALUES (
+    '2026-05',
+    NOW(),
+    5000.00,
+    500.00,
+    -4500.00,
+    'pendente',
+    1
+);
+  $$,
+  '23514',
+  'new row for relation "pagamento" violates check constraint "chk_valor_liquido"'
+);
+
 SELECT * FROM finish();
 
 ROLLBACK;
