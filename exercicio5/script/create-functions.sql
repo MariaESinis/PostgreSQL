@@ -77,7 +77,7 @@ LANGUAGE plpgsql
 AS $$
 BEGIN
     RETURN (
-        p_motivo ~ '^[A-Za-z0-9À-ÿ]+$'
+        p_motivo ~ '^[A-Za-z0-9À-ÿ ]+$'
         AND length(trim(p_motivo)) >= 10
         AND p_motivo !~ '  '
 
