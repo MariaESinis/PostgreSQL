@@ -20,7 +20,7 @@ INSERT INTO ex5_rh.funcionario(
 VALUES (
     1001,
     'João Silva',
-    '123.45678.90-1',
+    '12345678901',
     'joao.silva@email.com',
     '11999999999',
     'Analista de Sistemas',
