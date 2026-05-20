@@ -27,7 +27,8 @@ VALUES (
     5500.00,
     'ativo',
     NOW(),
-    NOW()
+    NOW(),
+		NULL
 );
 
 INSERT INTO ex5_ti.equipamentos(
