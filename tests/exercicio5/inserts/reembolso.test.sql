@@ -4,6 +4,9 @@ SET search_path TO ex_pgtap;
 
 SELECT plan(1);
 
+SET CONSTRAINTS ex5_rh.fk_departamento_id, ex5_rh.fk_gestor_id DEFERRED;
+
+
 INSERT INTO ex5_rh.departamento(
     nome,
     sigla,
@@ -17,6 +20,7 @@ VALUES (
     75000.00,
     '2026-05-20 10:00:00-03',
     1
+    
 );
 
 INSERT INTO ex5_rh.funcionario(
@@ -31,6 +35,7 @@ INSERT INTO ex5_rh.funcionario(
     created_at,
     updated_at,
     departamento_id
+    
 )
 VALUES (
     1001,
@@ -43,7 +48,8 @@ VALUES (
     'ativo',
     CURRENT_TIMESTAMP,
     CURRENT_TIMESTAMP,
-	  NULL
+    1
+	  
 );
 
 INSERT INTO ex5_rh.funcionario(
@@ -58,6 +64,7 @@ INSERT INTO ex5_rh.funcionario(
     created_at,
     updated_at,
     departamento_id
+    
 )
 VALUES (
     1002,
@@ -70,7 +77,8 @@ VALUES (
     'ativo',
     CURRENT_TIMESTAMP,
     CURRENT_TIMESTAMP,
-	  1
+    1
+	  
 );
 
 UPDATE ex5_rh.departamento
