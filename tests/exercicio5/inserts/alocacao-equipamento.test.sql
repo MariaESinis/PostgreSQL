@@ -72,7 +72,7 @@ SELECT throws_ok(
 		);
 	$$,
 	'23514',
-  'new row for relation "alocacao_equipamentos" violates check constraint "chk_motivo"'
+    'new row for relation "alocacao_equipamentos" violates check constraint "chk_motivo"'
 );
 
 SELECT * FROM finish();
