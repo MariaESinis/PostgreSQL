@@ -2,7 +2,7 @@ BEGIN;
 
 SET search_path TO ex_pgtap;
 
-SELECT plan(2);
+SELECT plan(3);
 
 INSERT INTO ex5_rh.funcionario(
     matricula,
