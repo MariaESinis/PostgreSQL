@@ -13,13 +13,13 @@ SELECT throws_ok(
       )
 	    VALUES (
         'User123', 
-        '1', 
+        '6', 
         'Uso corporativo', 
         'ativo'
       );
     $$,
     '23514',
-    'new row for relation "perfil_acesso" violates check constraint "chk_perfil_acesso"'
+    'new row for relation "perfil_acesso" violates check constraint "acesso_nivel_acesso"'
 
 
 );
