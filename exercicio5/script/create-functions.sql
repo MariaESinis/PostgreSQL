@@ -78,7 +78,7 @@ AS $$
 BEGIN
     RETURN (
         p_motivo ~ '^[A-Za-z0-9]+$'
-        AND length(p_motivo) >= 10
+        AND length(trim(p_nome)) >= 10
         AND !~ '  '
 
     );
