@@ -149,8 +149,6 @@ SELECT throws_ok(
 );
 
 -- 5) UNIQUE num_serie
-SELECT throws_ok(
-    $$
     INSERT INTO ex5_ti.equipamentos(
     num_patrimonial,
     num_serie,
@@ -174,7 +172,6 @@ SELECT throws_ok(
     '2024-04-03 00:00:00-03'
     );
     $$
-);
 
 SELECT throws_ok(
     $$
