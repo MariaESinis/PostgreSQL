@@ -75,5 +75,5 @@ SELECT throws_ok(
   'new row for relation "alocacao-equipamento" violates check constraint "chk_motivo"'
 );
 
-SET * FROM finish();
+SELECT * FROM finish();
 ROLLBACK;
