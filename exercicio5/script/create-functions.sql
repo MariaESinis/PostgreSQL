@@ -70,3 +70,17 @@ BEGIN
     );
 END;
 $$;
+
+CREATE OR REPLACE FUNCTION ex5_helpers.fn_motivo(IN p_motivo TEXT)
+RETURNS BOOLEAN
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    RETURN (
+        p_motivo ~ '^[A-Za-z0-9]+$'
+        AND length(p_motivo) >= 10
+        AND !~ '  '
+
+    );
+END;
+$$;
