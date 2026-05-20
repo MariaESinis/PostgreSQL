@@ -19,10 +19,9 @@ SELECT throws_ok(
       );
     $$,
     '23514',
-    'new row for relation "perfil_acesso" violates check constraint "acesso_nivel_acesso"'
-
-
+    'new row for relation "perfil_acesso" violates check constraint "chk_perfil_acesso_nivel_acesso"'
 );
 
 SELECT * FROM finish();
+
 ROLLBACK;
