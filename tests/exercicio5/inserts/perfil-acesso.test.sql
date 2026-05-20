@@ -22,7 +22,7 @@ SELECT throws_ok(
     'new row for relation "perfil_acesso" violates check constraint "chk_perfil_acesso"'
 
 
-)
+);
 
 SELECT * FROM finish();
 ROLLBACK;
