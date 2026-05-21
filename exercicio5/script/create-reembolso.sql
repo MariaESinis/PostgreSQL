@@ -33,13 +33,13 @@ CREATE TABLE IF NOT EXISTS ex5_financeiro.reembolso(
         ex5_helpers.fn_motivo(descricao)
     ),
 
-    CONSTRAINT fk_funcionario_id FOREIGN KEY(
-        funcionario_id) REFERENCES 
-        ex5_rh.funcionario(id)
-    ,
-    CONSTRAINT fk_departamento_id FOREIGN KEY(
-        departamento_id) REFERENCES 
-        ex5_rh.departamento(id)
+    CONSTRAINT fk_funcionario_id 
+        FOREIGN KEY(funcionario_id) 
+        REFERENCES ex5_rh.funcionario(id),
+
+    CONSTRAINT fk_departamento_id 
+        FOREIGN KEY(departamento_id) 
+        REFERENCES ex5_rh.departamento(id)
         DEFERRABLE INITIALLY IMMEDIATE
 
 );

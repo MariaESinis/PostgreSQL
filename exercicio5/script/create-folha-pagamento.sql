@@ -27,8 +27,8 @@ CREATE TABLE IF NOT EXISTS ex5_financeiro.pagamento(
     CONSTRAINT chk_valor_desconto CHECK(valor_desconto > 0),
     CONSTRAINT chk_valor_liquido CHECK(valor_liquido > 0),
 
-    CONSTRAINT fk_financeiro_funcionario_id FOREIGN KEY 
-        (funcionario_id) REFERENCES 
-        ex5_rh.funcionario(id)
+    CONSTRAINT fk_financeiro_funcionario_id 
+        FOREIGN KEY (funcionario_id) 
+        REFERENCES ex5_rh.funcionario(id)
     
 )

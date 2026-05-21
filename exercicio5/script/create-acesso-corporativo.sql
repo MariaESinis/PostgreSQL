@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS ex5_ti.acesso_corporativo(
 
     CONSTRAINT pk_acesso_corporativo_id PRIMARY KEY(id),
     
-    CONSTRAINT fk_funcionario_id FOREIGN KEY(
-        funcionario_id) REFERENCES 
-        ex5_rh.funcionario(id)
-)
+    CONSTRAINT fk_funcionario_id 
+        FOREIGN KEY(funcionario_id) 
+        REFERENCES ex5_rh.funcionario(id)
+);

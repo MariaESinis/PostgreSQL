@@ -30,5 +30,8 @@ CREATE TABLE IF NOT EXISTS ex5_rh.historico(
     CONSTRAINT chk_descricao CHECK(
         ex5_helpers.fn_motivo(descricao)
     ),
-    CONSTRAINT fk_funcionario_id FOREIGN KEY(funcionario_id) REFERENCES ex5_rh.funcionario(id)
+
+    CONSTRAINT fk_funcionario_id 
+        FOREIGN KEY(funcionario_id) 
+        REFERENCES ex5_rh.funcionario(id)
 )

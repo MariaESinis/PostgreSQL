@@ -25,11 +25,11 @@ CREATE TABLE IF NOT EXISTS ex5_ti.alocacao_equipamentos(
         ex5_helpers.fn_motivo(motivo)
     ),
 
-    CONSTRAINT fk_funcionario_id FOREIGN KEY(
-        funcionario_id) REFERENCES 
-        ex5_rh.funcionario(id),
+    CONSTRAINT fk_funcionario_id 
+        FOREIGN KEY(funcionario_id) 
+        REFERENCES ex5_rh.funcionario(id),
 
-    CONSTRAINT fk_equipamento_id FOREIGN KEY(
-        equipamento_id) REFERENCES 
-        ex5_rh.departamento(id)
+    CONSTRAINT fk_equipamento_id 
+        FOREIGN KEY(equipamento_id) 
+        REFERENCES ex5_rh.departamento(id)
 );
