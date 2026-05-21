@@ -58,6 +58,21 @@ SELECT throws_ok(
     NULL
 );
 
+SELECT throws_ok(
+    $$
+			INSERT INTO ex5_ti.funcionario_perfil_acesso( 
+				perfil_acesso_id, 
+				funcionario_id
+			)
+			VALUES ( 
+				'1', 
+				'1'
+			);
+    $$,
+		'23505',
+    NULL
+);
+
 SELECT * FROM finish();
 
 ROLLBACK;
