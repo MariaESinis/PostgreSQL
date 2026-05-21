@@ -42,7 +42,7 @@ SELECT throws_ok(
 				'admissao', 
 				'2026-05-20 10:00:00-03', 
 				'Funcionario admitido no dia 20-05, sem impedimentos', 
-				'Carla Santos', 
+				'Carl@ Sant0s', 
 				'1'
 			);
     $$,
