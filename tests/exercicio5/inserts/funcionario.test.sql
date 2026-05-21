@@ -5,6 +5,7 @@ SELECT plan(4);
 
 SET CONSTRAINTS ex5_rh.fk_departamento_id, ex5_rh.fk_gestor_id DEFERRED;
 
+	--Insert de funcionario
 	INSERT INTO ex5_rh.funcionario(
     matricula,
     nome,
@@ -33,6 +34,7 @@ SET CONSTRAINTS ex5_rh.fk_departamento_id, ex5_rh.fk_gestor_id DEFERRED;
     1
 	);
 
+	--Insert de departamento
 	INSERT INTO ex5_rh.departamento(
     nome,
     sigla,
@@ -48,7 +50,7 @@ SET CONSTRAINTS ex5_rh.fk_departamento_id, ex5_rh.fk_gestor_id DEFERRED;
     1
   );
 
-	
+	--Teste de nome de funcionario
 	SELECT throws_ok(
 	$$
 		INSERT INTO ex5_rh.funcionario
@@ -84,6 +86,7 @@ SET CONSTRAINTS ex5_rh.fk_departamento_id, ex5_rh.fk_gestor_id DEFERRED;
 		'new row for relation "funcionario" violates check constraint "chk_funcionario_nome"'
 );
 	
+--Teste de email de funcionario
 SELECT throws_ok(
 	$$
 		INSERT INTO ex5_rh.funcionario
@@ -119,6 +122,7 @@ SELECT throws_ok(
 		'new row for relation "funcionario" violates check constraint "chk_funcionario_email"'
 );
 
+--Teste de telefone de funcionario
 SELECT throws_ok(
 		$$
 			INSERT INTO ex5_rh.funcionario
@@ -154,6 +158,7 @@ SELECT throws_ok(
 			'new row for relation "funcionario" violates check constraint "chk_funcionario_telefone"'
 );
 
+--Teste de salario de funcionario
 SELECT throws_ok(
 		$$
 			INSERT INTO ex5_rh.funcionario
@@ -189,6 +194,40 @@ SELECT throws_ok(
 			'new row for relation "funcionario" violates check constraint "chk_funcionario_salario"'
 );
 
+--Testes de unique
+SELECT throws_ok(
+		$$
+			INSERT INTO ex5_rh.funcionario(
+			matricula,
+			nome,
+			pis_pasep,
+			email,
+			telefone,
+			cargo,
+			salario_base,
+			status,
+			created_at,
+			updated_at,
+			departamento_id
+			
+		)
+		VALUES (
+			1001,
+			'João Silva',
+			'12345678901',
+			'joao.silva@email.com',
+			'11999999999',
+			'Analista de Sistemas',
+			5500.00,
+			'ativo',
+			CURRENT_TIMESTAMP,
+			CURRENT_TIMESTAMP,
+			1
+		);
+		$$,
+		'23505',
+		NULL
+);
 SELECT * FROM finish();
 
 ROLLBACK;
