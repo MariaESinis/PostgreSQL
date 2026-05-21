@@ -1,7 +1,7 @@
 BEGIN;
 
 SET search_path TO ex_pgtap;
-SELECT plan(3);
+SELECT plan(4);
 
 SET CONSTRAINTS ex5_rh.fk_departamento_id, ex5_rh.fk_gestor_id DEFERRED;
 
@@ -152,6 +152,41 @@ SELECT throws_ok(
 			$$,
 			'23514',
 			'new row for relation "funcionario" violates check constraint "chk_funcionario_telefone"'
+);
+
+SELECT throws_ok(
+		$$
+			INSERT INTO ex5_rh.funcionario
+			(
+				matricula,
+				nome,
+				pis_pasep,
+				email,
+				telefone,
+				cargo,
+				salario_base,
+				status,
+				created_at,
+				updated_at,
+				departamento_id
+			)
+			VALUES 
+			(
+				1003,
+				'Amanda Veloso',
+				'12345678901',
+				'ricardo.cardoso@gmail.com',
+				'11999999999',
+				'Desenvolvedor back-end',
+				-20.50,
+				'ativo',
+				CURRENT_TIMESTAMP,
+				CURRENT_TIMESTAMP,
+				1
+			);
+			$$,
+			'23514',
+			'new row for relation "funcionario" violates check constraint "chk_funcionario_salario"'
 );
 
 SELECT * FROM finish();
