@@ -3,6 +3,8 @@ BEGIN;
 SET search_path TO ex_pgtap;
 SELECT plan(2);
 
+SET CONSTRAINTS ex5_rh.fk_departamento_id, ex5_rh.fk_gestor_id DEFERRED;
+
 	INSERT INTO ex5_rh.funcionario(
     matricula,
     nome,
@@ -30,7 +32,7 @@ SELECT plan(2);
     CURRENT_TIMESTAMP,
     1
 	);
-	
+
 	INSERT INTO ex5_rh.departamento(
     nome,
     sigla,
