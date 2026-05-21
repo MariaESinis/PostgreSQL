@@ -1,7 +1,7 @@
 BEGIN;
 
 SET search_path TO ex_pgtap;
-SELECT plan(2);
+SELECT plan(3);
 
 SET CONSTRAINTS ex5_rh.fk_departamento_id, ex5_rh.fk_gestor_id DEFERRED;
 
@@ -84,7 +84,42 @@ SET CONSTRAINTS ex5_rh.fk_departamento_id, ex5_rh.fk_gestor_id DEFERRED;
 		'new row for relation "funcionario" violates check constraint "chk_funcionario_nome"'
 );
 	
-	SELECT throws_ok(
+SELECT throws_ok(
+	$$
+		INSERT INTO ex5_rh.funcionario
+		(
+			matricula,
+			nome,
+			pis_pasep,
+			email,
+			telefone,
+			cargo,
+			salario_base,
+			status,
+			created_at,
+			updated_at,
+			departamento_id
+		)
+		VALUES 
+		(
+			1002,
+			'Marina Lima',
+			'12345678901',
+			'marialimaemail.com',
+			'11999999999',
+			'Desenvolvedor back-end',
+			10500.00,
+			'ativo',
+			CURRENT_TIMESTAMP,
+			CURRENT_TIMESTAMP,
+			1
+		);
+		$$,
+		'23514',
+		'new row for relation "funcionario" violates check constraint "chk_funcionario_email"'
+);
+
+SELECT throws_ok(
 		$$
 			INSERT INTO ex5_rh.funcionario
 			(
@@ -102,11 +137,11 @@ SET CONSTRAINTS ex5_rh.fk_departamento_id, ex5_rh.fk_gestor_id DEFERRED;
 			)
 			VALUES 
 			(
-				1002,
-				'Marina Lima',
+				1003,
+				'Ricardo Cardoso',
 				'12345678901',
-				'marialimaemail.com',
-				'11999999999',
+				'ricardo.cardoso@gmail.com',
+				'00999999999',
 				'Desenvolvedor back-end',
 				10500.00,
 				'ativo',
@@ -116,7 +151,7 @@ SET CONSTRAINTS ex5_rh.fk_departamento_id, ex5_rh.fk_gestor_id DEFERRED;
 			);
 			$$,
 			'23514',
-			'new row for relation "funcionario" violates check constraint "chk_funcionario_email"'
+			'new row for relation "funcionario" violates check constraint "chk_funcionario_salario"'
 );
 
 SELECT * FROM finish();
