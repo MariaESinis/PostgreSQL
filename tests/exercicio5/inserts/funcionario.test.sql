@@ -2,7 +2,7 @@ BEGIN;
 
 SET search_path TO ex_pgtap;
 
-SELECT plan(5);
+SELECT plan(6);
 
 SET CONSTRAINTS ex5_rh.fk_departamento_id, ex5_rh.fk_gestor_id DEFERRED;
 
