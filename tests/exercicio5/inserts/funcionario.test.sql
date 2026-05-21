@@ -35,7 +35,7 @@ INSERT INTO ex5_rh.funcionario(
 	)
 	VALUES (
     1001,
-    'J0ã0 Silv@',
+    'João Silva',
     '12345678901',
     'joao.silva@email.com',
     '11999999999',
@@ -65,13 +65,13 @@ SELECT throws_ok(
   )
 	VALUES 
 	(
-		1001,
-		'J0ã0 Silv@',
+		1002,
+		'M@r!na Lim$',
 		'12345678901',
 		'joao.silva@email.com',
 		'11999999999',
-		'Analista de Sistemas',
-		5500.00,
+		'Desenvolvedor back-end',
+		7500.00,
 		'ativo',
 		CURRENT_TIMESTAMP,
 		CURRENT_TIMESTAMP,
