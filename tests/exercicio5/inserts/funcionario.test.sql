@@ -220,6 +220,40 @@ $$,
 'duplicate key value violates unique constraint "uq_funcionario_matricula"'
 );
 
+-- TESTE: pis duplicada
+SELECT throws_ok(
+$$
+    INSERT INTO ex5_rh.funcionario (
+        matricula,
+        nome,
+        pis_pasep,
+        email,
+        telefone,
+        cargo,
+        salario_base,
+        status,
+        created_at,
+        updated_at,
+        departamento_id
+    )
+    VALUES (
+        1006,
+        'Robson Thiago',
+        '62345678901',
+        'robson.thiago@gmail.com',
+        '11999999990',
+        'Veterinario',
+        4000,
+        'ativo',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP,
+        1
+    );
+$$,
+'23505',
+'duplicate key value violates unique constraint "uq_funcionario_pis"'
+);
+
 SELECT * FROM finish();
 
 ROLLBACK;
