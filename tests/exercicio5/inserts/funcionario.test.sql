@@ -183,7 +183,7 @@ $$
     );
 $$,
 '23514',
-'new row for relation "funcionario" violates check constraint "chk_funcionario_salario_base"'
+'new row for relation "funcionario" violates check constraint "chk_funcionario_salario"'
 );
 
 -- TESTE: matrícula duplicada
@@ -217,7 +217,7 @@ $$
     );
 $$,
 '23505',
-'duplicate key value violates unique constraint "funcionario_matricula_key"'
+'duplicate key value violates unique constraint "uq_funcionario_matricula"'
 );
 
 SELECT * FROM finish();
