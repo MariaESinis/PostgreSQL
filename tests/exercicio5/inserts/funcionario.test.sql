@@ -239,7 +239,7 @@ $$
     VALUES (
         1006,
         'Robson Thiago',
-        '62345678901',
+        '12345678901',
         'robson.thiago@gmail.com',
         '11999999990',
         'Veterinario',
