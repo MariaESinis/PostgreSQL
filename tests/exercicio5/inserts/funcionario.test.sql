@@ -141,7 +141,7 @@ SELECT throws_ok(
 				'Ricardo Cardoso',
 				'12345678901',
 				'ricardo.cardoso@gmail.com',
-				'00999999999',
+				'00699999999',
 				'Desenvolvedor back-end',
 				10500.00,
 				'ativo',
@@ -151,7 +151,7 @@ SELECT throws_ok(
 			);
 			$$,
 			'23514',
-			'new row for relation "funcionario" violates check constraint "chk_funcionario_salario"'
+			'new row for relation "funcionario" violates check constraint "chk_funcionario_telefone"'
 );
 
 SELECT * FROM finish();
