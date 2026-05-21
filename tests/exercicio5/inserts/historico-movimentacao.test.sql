@@ -41,7 +41,7 @@ SELECT throws_ok(
 			VALUES (
 				'admissao', 
 				'2026-05-20 10:00:00-03', 
-				'Funcionario admitido no dia 20-05, sem impedimentos', 
+				'Funcionario admitido no dia 20 de março, sem impedimentos', 
 				'Carl@ Sant0s', 
 				'1'
 			);
