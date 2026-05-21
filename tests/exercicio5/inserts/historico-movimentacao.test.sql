@@ -1,7 +1,7 @@
 BEGIN;
 
 SET search_path TO ex_pgtap;
-SELECT plan(1);
+SELECT plan(2);
 
 INSERT INTO ex5_rh.funcionario(
     matricula,
@@ -48,6 +48,26 @@ SELECT throws_ok(
     $$,
 		'23514',
     'new row for relation "historico" violates check constraint "chk_historico_responsavel"'
+);
+
+SELECT throws_ok(
+    $$
+			INSERT INTO ex5_rh.historico(
+				tipo, 
+				data, 
+				descricao, 
+				responsavel, 
+				funcionario_id)
+			VALUES (
+				'admissao', 
+				'2026-05-20 10:00:00-03', 
+				'Funcionario  @dmitido  no  dia  20  de  março,  sem  impedimentos', 
+				'Carla Santos', 
+				'1'
+			);
+    $$,
+		'23514',
+    'new row for relation "historico" violates check constraint "chk_descricao"'
 );
 
 SELECT * FROM finish();
