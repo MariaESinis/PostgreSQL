@@ -109,6 +109,31 @@ SELECT throws_ok(
     '23514',
     'new row for relation "reembolso" violates check constraint "chk_reembolso_valor_solicitado"'
 );
+
+SELECT throws_ok(
+    $$
+      INSERT INTO ex5_financeiro.reembolso(
+      data_solicitacao,
+      valor_solicitacao,
+      descricao,
+      status,
+      aprovador_id,
+      funcionario_id,
+      departamento_id
+    )
+      VALUES (
+      '2026-05-20 14:30:00-03',
+      350.75,
+      'Re',
+      'aberta',
+      1,
+      2,
+      1
+    );
+    $$,
+    '23514',
+    'new row for relation "reembolso" violates check constraint "chk_descricao"'
+);
 SELECT * FROM finish();
 
 ROLLBACK;
