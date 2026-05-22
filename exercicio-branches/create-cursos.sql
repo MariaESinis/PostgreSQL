@@ -9,5 +9,7 @@ CREATE TABLE IF NOT EXISTS  escola_magia.curso(
     ),
 
     nome        VARCHAR(150)    NOT NULL,
-    professor   VARCHAR(150)    NOT NULL
+    professor   VARCHAR(150)    NOT NULL,
+
+    CONSTRAINT pk_curso_id PRIMARY KEY(id)
 );
