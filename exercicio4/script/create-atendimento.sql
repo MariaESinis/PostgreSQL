@@ -18,8 +18,8 @@ CREATE TABLE IF NOT EXISTS exercicio4.atendimento(
     situacao        exercicio4.situacao_atendimento     NOT NULL,
     periodo         TSTZRANGE                           NOT NULL,
     created_at      TIMESTAMPTZ                         NOT NULL,
-    animal_id       INTEGER                             NOT NULL    REFERENCES exercicio4.animal(id),
-    veterinario_id  INTEGER                             NOT NULL    REFERENCES exercicio4.veterinario(id),
+    animal_id       INTEGER                             NOT NULL,
+    veterinario_id  INTEGER                             NOT NULL,
     
     CONSTRAINT pk_atendimento_id PRIMARY KEY(id),
 
@@ -33,6 +33,24 @@ CREATE TABLE IF NOT EXISTS exercicio4.atendimento(
         periodo WITH &&
     ),
 
-    CONSTRAINT chk_atendimento_valor CHECK (valor > 0)
+    CONSTRAINT chk_atendimento_valor CHECK (valor > 0),
+
+   
+    CONSTRAINT chk_atendimento_diagnostico CHECK(
+        exercicio4.fn_animal_diagnostico(diagnostico)
+    ),
+
+    CONSTRAINT chk_periodo CHECK(
+        (lower(periodo) < upper(periodo))
+    ),
+
+    CONSTRAINT fk_animal_id 
+        FOREIGN KEY(animal_id)
+        REFERENCES exercicio4.animal(id),
+
+    CONSTRAINT fk_veterinario_id
+        FOREIGN KEY(veterinario_id)
+        REFERENCES exercicio4.veterinario(id)
+
 
 );
