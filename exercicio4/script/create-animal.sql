@@ -34,7 +34,13 @@ CREATE TABLE IF NOT EXISTS exercicio4.animal(
     
     CONSTRAINT chk_animal_sexo CHECK (
 		sexo IN('F', 'M', 'D', 'H')
-	)
+	),
     
+    CONSTRAINT fk_tutor_id 
+        FOREIGN KEY(tutor_id) 
+        REFERENCES exercicio4.tutor(id),
     
-)
+    CONSTRAINT fk_raca_id
+        FOREIGN KEY(raca_id)
+        REFERENCES exercicio4.raca(id)
+);
