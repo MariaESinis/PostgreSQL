@@ -197,3 +197,126 @@ BEGIN
     );
 END;
 $FUNCTION$;
+
+CREATE OR REPLACE FUNCTION exercicio4.fn_animal_diagnostico (IN p_diagnostico TEXT)
+RETURNS BOOLEAN
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    RETURN (
+        p_diagnostico ~ '^[A-Za-z0-9À-ÿ,.\- ]+$'
+        AND length(trim(p_diagnostico)) >= 10
+        AND p_diagnostico !~ '  '
+
+    );
+END;
+$$;
+
+--Valida o CEP
+CREATE OR REPLACE FUNCTION exercicio4.fn_cep (IN p_cep TEXT)
+RETURNS BOOLEAN
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    RETURN (
+        p_cep ~ '^\d{8}$'
+    );
+END;
+$$;
+
+--Validar CNPJ
+
+CREATE OR REPLACE FUNCTION exercicio4.fn_cnpj(IN p_cnpj TEXT)
+RETURNS BOOLEAN
+LANGUAGE plpgsql
+AS
+$$
+DECLARE
+    v_cnpj TEXT;
+    v_soma INTEGER;
+    v_peso INTEGER;
+    v_dig1 INTEGER;
+    v_dig2 INTEGER;
+    i INTEGER;
+BEGIN
+    -- Remove qualquer caractere não numérico
+    v_cnpj := regexp_replace(p_cnpj, '\D', '', 'g');
+
+    -- Deve ter exatamente 14 dígitos
+    IF length(v_cnpj) <> 14 THEN
+        RETURN FALSE;
+    END IF;
+
+    -- Rejeita sequências repetidas
+    IF v_cnpj IN (
+        '00000000000000',
+        '11111111111111',
+        '22222222222222',
+        '33333333333333',
+        '44444444444444',
+        '55555555555555',
+        '66666666666666',
+        '77777777777777',
+        '88888888888888',
+        '99999999999999'
+    ) THEN
+        RETURN FALSE;
+    END IF;
+
+    /*
+     * PRIMEIRO DÍGITO
+     */
+    v_soma := 0;
+    v_peso := 5;
+
+    FOR i IN 1..12 LOOP
+        v_soma := v_soma +
+            CAST(substr(v_cnpj, i, 1) AS INTEGER) * v_peso;
+
+        v_peso := v_peso - 1;
+
+        IF v_peso < 2 THEN
+            v_peso := 9;
+        END IF;
+    END LOOP;
+
+    v_dig1 := v_soma % 11;
+
+    IF v_dig1 < 2 THEN
+        v_dig1 := 0;
+    ELSE
+        v_dig1 := 11 - v_dig1;
+    END IF;
+
+    /*
+     * SEGUNDO DÍGITO
+     */
+    v_soma := 0;
+    v_peso := 6;
+
+    FOR i IN 1..13 LOOP
+        v_soma := v_soma +
+            CAST(substr(v_cnpj, i, 1) AS INTEGER) * v_peso;
+
+        v_peso := v_peso - 1;
+
+        IF v_peso < 2 THEN
+            v_peso := 9;
+        END IF;
+    END LOOP;
+
+    v_dig2 := v_soma % 11;
+
+    IF v_dig2 < 2 THEN
+        v_dig2 := 0;
+    ELSE
+        v_dig2 := 11 - v_dig2;
+    END IF;
+
+    -- Valida os dígitos finais
+    RETURN
+        v_dig1 = CAST(substr(v_cnpj, 13, 1) AS INTEGER)
+        AND
+        v_dig2 = CAST(substr(v_cnpj, 14, 1) AS INTEGER);
+END;
+$$;
