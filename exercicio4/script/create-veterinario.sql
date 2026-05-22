@@ -15,8 +15,8 @@ CREATE TABLE IF NOT EXISTS exercicio4.veterinario(
         SEQUENCE NAME exercicio4.seq_veterinario_id
     ),
 	
-    nome                    VARCHAR(150)                        NOT NULL,
     crmv                    VARCHAR(11)                         NOT NULL,
+    nome                    VARCHAR(150)                        NOT NULL,
     cpf                     VARCHAR(11)                         NOT NULL,
     especialidade           VARCHAR(60)                         NOT NULL,
     data_contratacao        TIMESTAMPTZ                         NOT NULL,
