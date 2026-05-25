@@ -4,7 +4,7 @@ SET search_path TO ex_pgtap;
 
 SELECT plan(5);
 
--- 1) CHECK valor_aquisicao
+-- TESTE 1: valor_aquisicao
 SELECT throws_ok(
     $$
     INSERT INTO ex5_ti.equipamentos(
@@ -35,7 +35,7 @@ SELECT throws_ok(
 
 );
 
--- 2) CHECK num_serie
+-- TESTE 2: num_serie
 SELECT throws_ok(
     $$
     INSERT INTO ex5_ti.equipamentos(
@@ -65,7 +65,7 @@ SELECT throws_ok(
     'new row for relation "equipamentos" violates check constraint "chk_equipamento_num_serie"'
 );
 
--- 3) CHECK fabricante
+-- TESTE 3: fabricante
 SELECT throws_ok(
     $$
     INSERT INTO ex5_ti.equipamentos(
@@ -95,7 +95,7 @@ SELECT throws_ok(
     'new row for relation "equipamentos" violates check constraint "chk_equipamento_fabricante"'
 );
 
--- 4) UNIQUE num_patrimonial
+-- TESTE 4: UNIQUE num_patrimonial
 INSERT INTO ex5_ti.equipamentos(
     num_patrimonial,
     num_serie,
@@ -145,7 +145,7 @@ SELECT throws_ok(
     );
     $$,
     '23505',
-    NULL
+    'duplicate key value violates unique constraint "uq_equipamento_num_patrimonial"'
 );
 
 -- 5) UNIQUE num_serie
@@ -199,7 +199,7 @@ VALUES (
   );
   $$,
   '23505',
-    NULL
+    'duplicate key value violates unique constraint "uq_equipamento_num_serie"'
 );
 
 SELECT * FROM finish();
