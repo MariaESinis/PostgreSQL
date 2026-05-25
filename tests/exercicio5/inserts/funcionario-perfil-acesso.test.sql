@@ -16,6 +16,19 @@ INSERT INTO ex5_ti.perfil_acesso(
 		'ativo'
 );
 
+INSERT INTO ex5_ti.perfil_acesso(
+    nome, 
+    nivel_acesso, 
+    descricao, 
+    is_active
+)
+	VALUES (
+        'maria', 
+	    '2', 
+		'Perfil criado para trabalho', 
+		'ativo'
+);
+
 INSERT INTO ex5_rh.funcionario(
     matricula,
     nome,
@@ -77,7 +90,7 @@ SELECT throws_ok(
 				funcionario_id
 			)
 			VALUES ( 
-				'1', 
+				'2', 
 				'1'
 			);
     $$,
