@@ -93,6 +93,29 @@ SELECT throws_ok(
     '23514',
     'new row for relation "departamento" violates check constraint "chk_sigla"'
 );
+
+--TESTE 3: orçamento mensal invalido
+SELECT throws_ok(
+    $$
+        INSERT INTO ex5_rh.departamento (
+        nome,
+        sigla,
+        orcamento_mensal,
+        data_criacao,
+        gestor_id
+    )
+        VALUES (
+        'Tecnologia da Informação',
+        'TI',
+        -75000.00,
+        '2026-05-20 10:00:00-03',
+        1
+        );
+    $$,
+    '23514',
+    'new row for relation "departamento" violates check constraint "chk_orcamento_mensal"'
+);
+
 SELECT * FROM finish();
 
 ROLLBACK;
