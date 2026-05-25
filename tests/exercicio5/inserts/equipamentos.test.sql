@@ -187,7 +187,7 @@ SELECT throws_ok(
     updated_at
 )
 VALUES (
-    3100,
+    3200,
     'BCD1500',
     'Dell',
     'X1',
@@ -199,7 +199,7 @@ VALUES (
   );
   $$,
   '23505',
-    'duplicate key value violates unique constraint "uq_equipamento_num_serie"'
+'duplicate key value violates unique constraint "uq_equipamento_num_serie"'
 );
 
 SELECT * FROM finish();
