@@ -1,7 +1,7 @@
 BEGIN;
 
 SET search_path TO ex_pgtap;
-SELECT plan(1);
+SELECT plan(2);
 
 INSERT INTO ex5_ti.perfil_acesso(
     nome, 
