@@ -10,8 +10,8 @@ INSERT INTO ex5_ti.perfil_acesso(
     is_active
 )
 	VALUES (
-    'maria', 
-		'1', 
+        'maria', 
+	    '1', 
 		'Perfil criado para trabalho', 
 		'ativo'
 );
@@ -53,7 +53,7 @@ INSERT INTO ex5_ti.funcionario_perfil_acesso(
 		'1'
 );
 
-
+-- TESTE 1: unique para perfil_acesso_id
 SELECT throws_ok(
     $$
 			INSERT INTO ex5_ti.funcionario_perfil_acesso( 
@@ -65,8 +65,24 @@ SELECT throws_ok(
 				'1'
 			);
     $$,
-		'23505',
-    NULL
+	'23505',
+    'duplicate key value violates unique constraint "uq_perfil_acesso_id"'
+);
+
+--TESTE 2: unique para funcionario_id
+SELECT throws_ok(
+    $$
+			INSERT INTO ex5_ti.funcionario_perfil_acesso( 
+				perfil_acesso_id, 
+				funcionario_id
+			)
+			VALUES ( 
+				'1', 
+				'1'
+			);
+    $$,
+	'23505',
+    'duplicate key value violates unique constraint "uq_funcionario_id"'
 );
 
 SELECT * FROM finish();
