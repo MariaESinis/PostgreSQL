@@ -254,6 +254,40 @@ $$,
 'duplicate key value violates unique constraint "uq_funcionario_pis"'
 );
 
+-- TESTE: email duplicado
+SELECT throws_ok(
+$$
+    INSERT INTO ex5_rh.funcionario (
+        matricula,
+        nome,
+        pis_pasep,
+        email,
+        telefone,
+        cargo,
+        salario_base,
+        status,
+        created_at,
+        updated_at,
+        departamento_id
+    )
+    VALUES (
+        1001,
+        'João Silva',
+        '1234567343',
+        'joao.silva@email.com',
+        '28999999999',
+        'Assistente juridico',
+        3500.00,
+        'ativo',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP,
+        1
+    );
+    $$,
+    '23505',
+    'duplicate key value violates unique constraint "uq_funcionario_email"'
+);
+
 SELECT * FROM finish();
 
 ROLLBACK;
