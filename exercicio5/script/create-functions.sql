@@ -84,3 +84,17 @@ BEGIN
     );
 END;
 $$;
+
+CREATE OR REPLACE FUNCTION ex5_helpers.fn_sigla(IN p_sigla TEXT)
+RETURNS BOOLEAN
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    RETURN (
+        p_sigla ~ '^[A-Za-z0-9À-ÿ,.\- ]+$'
+        AND length(trim(p_sigla)) >= 2
+        AND p_sigla !~ ' '
+
+    );
+END;
+$$;
