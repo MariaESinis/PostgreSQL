@@ -70,7 +70,8 @@ $$
 $$,
 '23514',
 'new row for relation "departamento" violates check constraint "chk_departamento_nome"'
-)
+);
 
 SELECT * FROM finish();
+
 ROLLBACK;
