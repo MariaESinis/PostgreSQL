@@ -91,7 +91,7 @@ SELECT throws_ok(
         );
     $$,
     '23514',
-    'new row for relation "departamento" violates check constraint "chk_departamento_nome"'
+    'new row for relation "departamento" violates check constraint "chk_sigla"'
 );
 SELECT * FROM finish();
 
