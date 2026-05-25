@@ -2,7 +2,7 @@ BEGIN;
 
 SET search_path TO ex_pgtap;
 
-SELECT plan(7);
+SELECT plan(8);
 
 SET CONSTRAINTS ex5_rh.fk_departamento_id, ex5_rh.fk_gestor_id DEFERRED;
 
@@ -288,6 +288,39 @@ SELECT throws_ok(
     'duplicate key value violates unique constraint "uq_funcionario_email"'
 );
 
+-- TESTE 8: telefone duplicado
+SELECT throws_ok(
+    $$
+    INSERT INTO ex5_rh.funcionario (
+        matricula,
+        nome,
+        pis_pasep,
+        email,
+        telefone,
+        cargo,
+        salario_base,
+        status,
+        created_at,
+        updated_at,
+        departamento_id
+    )
+    VALUES (
+        1011,
+        'Yasmin Lema',
+        '12345678909',
+        'yasmin.lema@email.com',
+        '11999999999',
+        'Analista de Sistemas',
+        9500.00,
+        'ativo',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP,
+        1
+    );
+    $$,
+    '23505',
+    'duplicate key value violates unique constraint "uq_funcionario_telefone"'
+);
 SELECT * FROM finish();
 
 ROLLBACK;
