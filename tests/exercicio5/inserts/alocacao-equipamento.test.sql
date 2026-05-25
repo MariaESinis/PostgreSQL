@@ -54,6 +54,7 @@ VALUES (
     NOW()
 );
 
+
 SELECT throws_ok(
   $$
 		INSERT INTO ex5_ti.alocacao_equipamentos(
