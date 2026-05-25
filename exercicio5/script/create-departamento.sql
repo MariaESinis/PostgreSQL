@@ -22,7 +22,17 @@ CREATE TABLE IF NOT EXISTS ex5_rh.departamento(
 
     CONSTRAINT chk_departamento_nome CHECK(
         ex5_helpers.fn_nome(nome)
+    ),
+
+    CONSTRAINT chk_sigla CHECK(
+        ex5_helpers.fn_sigla(sigla)
+    ),
+
+    CONSTRAINT chk_orcamento_mensal CHECK(
+        orcamento_mensal > 0
     )
+
+    
 );
 
 --ALTER TABLE ex5_rh.departamento ADD gestor_id INTEGER;
