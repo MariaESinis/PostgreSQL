@@ -271,7 +271,7 @@ $$
         departamento_id
     )
     VALUES (
-        1001,
+        1010,
         'João Silva',
         '1234567343',
         'joao.silva@email.com',
