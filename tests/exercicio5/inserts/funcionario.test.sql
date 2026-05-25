@@ -2,7 +2,7 @@ BEGIN;
 
 SET search_path TO ex_pgtap;
 
-SELECT plan(6);
+SELECT plan(7);
 
 SET CONSTRAINTS ex5_rh.fk_departamento_id, ex5_rh.fk_gestor_id DEFERRED;
 
@@ -50,7 +50,7 @@ VALUES (
     1
 );
 
--- TESTE: nome inválido
+-- TESTE 1: nome inválido
 SELECT throws_ok(
 $$
     INSERT INTO ex5_rh.funcionario (
@@ -84,7 +84,7 @@ $$,
 'new row for relation "funcionario" violates check constraint "chk_funcionario_nome"'
 );
 
--- TESTE: email inválido
+-- TESTE 2: email inválido
 SELECT throws_ok(
 $$
     INSERT INTO ex5_rh.funcionario (
@@ -118,7 +118,7 @@ $$,
 'new row for relation "funcionario" violates check constraint "chk_funcionario_email"'
 );
 
--- TESTE: telefone inválido
+-- TESTE 3: telefone inválido
 SELECT throws_ok(
 $$
     INSERT INTO ex5_rh.funcionario (
@@ -152,7 +152,7 @@ $$,
 'new row for relation "funcionario" violates check constraint "chk_funcionario_telefone"'
 );
 
--- TESTE: salário inválido
+-- TESTE 4: salário inválido
 SELECT throws_ok(
 $$
     INSERT INTO ex5_rh.funcionario (
@@ -186,7 +186,7 @@ $$,
 'new row for relation "funcionario" violates check constraint "chk_funcionario_salario"'
 );
 
--- TESTE: matrícula duplicada
+-- TESTE 5: matrícula duplicada
 SELECT throws_ok(
 $$
     INSERT INTO ex5_rh.funcionario (
@@ -220,7 +220,7 @@ $$,
 'duplicate key value violates unique constraint "uq_funcionario_matricula"'
 );
 
--- TESTE: pis duplicada
+-- TESTE 6: pis duplicada
 SELECT throws_ok(
 $$
     INSERT INTO ex5_rh.funcionario (
@@ -254,9 +254,9 @@ $$,
 'duplicate key value violates unique constraint "uq_funcionario_pis"'
 );
 
--- TESTE: email duplicado
+-- TESTE 7: email duplicado
 SELECT throws_ok(
-$$
+    $$
     INSERT INTO ex5_rh.funcionario (
         matricula,
         nome,
@@ -273,7 +273,7 @@ $$
     VALUES (
         1010,
         'João Silva',
-        '1234567343',
+        '12345678902',
         'joao.silva@email.com',
         '28999999999',
         'Assistente juridico',
