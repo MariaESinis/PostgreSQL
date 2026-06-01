@@ -12,5 +12,5 @@ CREATE TABLE IF NOT EXISTS ex7_academico.aulas(
     titulo      VARCHAR(120)                    NOT NULL,
     duracao     INTEGER                         NOT NULL,
     ordem       SMALLINT                        NOT NULL,
-    status      ex7_cadastro.aulas_status       NOT NULL
+    status      ex7_academico.aulas_status       NOT NULL
 );
