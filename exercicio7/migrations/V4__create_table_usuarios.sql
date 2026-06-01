@@ -17,12 +17,6 @@ CREATE TABLE IF NOT EXISTS ex7_cadastro.usuarios(
     status              ex7_cadastro.usuarios_status,
     senha               VARCHAR(100)    NOT NULL,
     created_date        TIMESTAMPTZ     NOT NULL,
-    updated_date        TIMESTAMPTZ     NOT NULL,
-
-    CONSTRAINT pk_cadastro_id PRIMARY KEY(id),
-
-    CONSTRAINT uq_cpf           UNIQUE(cpf),
-    CONSTRAINT uq_email         UNIQUE(email),
-    CONSTRAINT uq_telefone      UNIQUE(telefone)
-    
+    updated_date        TIMESTAMPTZ     NOT NULL
+  
 );
