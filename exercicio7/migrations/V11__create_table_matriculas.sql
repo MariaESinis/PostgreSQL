@@ -9,6 +9,6 @@ CREATE TABLE IF NOT EXISTS ex7_academico.matriculas(
     ),
     
     data_matricula      TIMESTAMPTZ                         NOT NULL,
-    status              ex7_cadastro.matriculas_status      NOT NULL,
+    status              ex7_academico.matriculas_status     NOT NULL,
     progresso           INTEGER                             NOT NULL
 );
