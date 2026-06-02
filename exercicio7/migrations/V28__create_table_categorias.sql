@@ -9,5 +9,9 @@ CREATE TABLE IF NOT EXISTS ex7_cadastro.categorias(
     ),
 
     nome            VARCHAR(150)    NOT NULL,
-    descricao       VARCHAR(300)    NULL
+    descricao       VARCHAR(300)    NULL,
+
+    CONSTRAINT pk_categorias_id PRIMARY KEY (id),
+
+    CONSTRAINT uq_categorias_nome UNIQUE (nome)
 );

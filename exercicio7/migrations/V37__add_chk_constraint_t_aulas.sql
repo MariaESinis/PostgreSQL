@@ -3,12 +3,11 @@ BEGIN
     IF NOT EXISTS (
         SELECT 1
         FROM pg_constraint
-        WHERE conrelid = 'ex7_academico.aulas'::regclass
-          AND contype = 'p'
+        WHERE conname = 'chk_aulas_url'
     ) THEN
         ALTER TABLE ex7_academico.aulas
-        ADD CONSTRAINT pk_aulas_id
-        PRIMARY KEY (id);
+        ADD CONSTRAINT chk_aulas_url
+        CHECK (ex7_helpers.fn_url(url));
     END IF;
 END
 $$;
