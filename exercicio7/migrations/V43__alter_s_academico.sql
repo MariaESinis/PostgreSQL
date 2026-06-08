@@ -1,0 +1,17 @@
+ALTER TABLE ex7_academico.aulas
+    ADD COLUMN IF NOT EXISTS deleted_at TIMESTAMPTZ,
+    ADD COLUMN IF NOT EXISTS is_deleted BOOLEAN;
+
+ALTER TABLE ex7_academico.modulos
+    ADD COLUMN IF NOT EXISTS deleted_at TIMESTAMPTZ,
+    ADD COLUMN IF NOT EXISTS is_deleted BOOLEAN;
+
+ALTER TABLE ex7_academico.matriculas
+    ADD COLUMN IF NOT EXISTS deleted_at TIMESTAMPTZ,
+    ADD COLUMN IF NOT EXISTS is_deleted BOOLEAN;
+
+
+ALTER TABLE ex7_academico.cursos
+    ADD COLUMN IF NOT EXISTS deleted_at TIMESTAMPTZ,
+    ADD COLUMN IF NOT EXISTS is_deleted BOOLEAN;
+
