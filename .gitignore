@@ -1,3 +1,7 @@
 exercicio7/setup/env/.env.dev
 exercicio7/setup/env/.env.prod
 exercicio7/setup/env/.env.qa
+
+exercicio8/setup/env/.env.dev
+exercicio8/setup/env/.env.prod
+exercicio8/setup/env/.env.qa
